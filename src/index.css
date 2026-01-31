@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* EVA Managing - Editorial Elegant Design System */
+
+@layer base {
+  :root {
+    /* Elegant Dark Theme */
+    --background: 20 10% 8%;
+    --foreground: 40 20% 95%;
+
+    --card: 20 10% 12%;
+    --card-foreground: 40 20% 95%;
+
+    --popover: 20 10% 12%;
+    --popover-foreground: 40 20% 95%;
+
+    /* Primary - Warm Gold/Copper from logo */
+    --primary: 25 80% 55%;
+    --primary-foreground: 20 10% 8%;
+
+    /* Secondary - Rich Orange */
+    --secondary: 15 85% 50%;
+    --secondary-foreground: 40 20% 95%;
+
+    /* Accent - Deep Terracotta */
+    --accent: 12 70% 45%;
+    --accent-foreground: 40 20% 95%;
+
+    /* Muted surfaces */
+    --muted: 20 8% 18%;
+    --muted-foreground: 30 10% 55%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 40 20% 95%;
+
+    --border: 20 10% 20%;
+    --input: 20 10% 20%;
+    --ring: 25 80% 55%;
+
+    --radius: 0.25rem;
+
+    /* Sidebar */
+    --sidebar-background: 20 10% 10%;
+    --sidebar-foreground: 40 20% 95%;
+    --sidebar-primary: 25 80% 55%;
+    --sidebar-primary-foreground: 20 10% 8%;
+    --sidebar-accent: 20 8% 18%;
+    --sidebar-accent-foreground: 40 20% 95%;
+    --sidebar-border: 20 10% 20%;
+    --sidebar-ring: 25 80% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-medium tracking-tight;
+  }
+}
+
+@layer components {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(25 80% 55%), hsl(15 85% 50%));
+  }
+
+  /* Editorial button styles */
+  .btn-editorial {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-sans font-medium uppercase tracking-[0.2em] border-2 border-primary text-primary transition-all duration-500 hover:bg-primary hover:text-background;
+  }
+
+  .btn-editorial-filled {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-sans font-medium uppercase tracking-[0.2em] bg-primary text-background border-2 border-primary transition-all duration-500 hover:bg-transparent hover:text-primary;
+  }
+
+  /* Elegant card */
+  .card-elegant {
+    @apply bg-card border border-border/30 transition-all duration-500 hover:border-primary/30;
+  }
+
+  /* Section styles */
+  .section-padding {
+    @apply py-24 md:py-32 lg:py-40;
+  }
+
+  /* Editorial navigation */
+  .nav-editorial {
+    @apply text-[10px] font-sans font-medium uppercase tracking-[0.15em] text-foreground/70 transition-colors duration-300 hover:text-primary;
+  }
+
+  /* Elegant underline animation */
+  .underline-editorial {
+    @apply relative;
+  }
+
+  .underline-editorial::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-px bg-primary transition-all duration-500;
+  }
+
+  .underline-editorial:hover::after {
+    @apply w-full;
+  }
+}
+
+@layer utilities {
+  .animate-fade-up {
+    animation: fadeUp 1s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 1.2s ease-out forwards;
+  }
+
+  @keyframes fadeUp {
+    from { 
+      opacity: 0; 
+      transform: translateY(40px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+}
