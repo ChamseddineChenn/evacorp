@@ -1,73 +1,90 @@
-# Welcome to your Lovable project
+# Eva Managing
 
-## Project info
+A French-language corporate website for Eva Managing, built to present the organization, its services, events, news, partners, and contact information through a responsive editorial-style experience.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Project overview
 
-## How can I edit this code?
+The public-facing website is structured as a single-page experience with dedicated sections for:
 
-There are several ways of editing your application.
+- Organization introduction and founder presentation
+- Services and upcoming events
+- News and announcements loaded from Supabase
+- Forum registration entry point
+- Frequently asked questions
+- Contact information and partner presentation
 
-**Use Lovable**
+The repository also includes an administration area for managing news content.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## Admin content management
 
-Changes made via Lovable will be committed automatically to this repo.
+The admin interface provides:
 
-**Use your preferred IDE**
+- Supabase authentication
+- News listing and dashboard summaries
+- Create, edit, and delete operations for news items
+- Draft and publish status management
+- Optional image URL for news entries
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Administrative access is intended to be enforced by Supabase authentication and database policies. Client-side checks are not a substitute for server-side authorization or Row Level Security.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Technology
 
-Follow these steps:
+- **React 18**
+- **TypeScript**
+- **Vite**
+- **Tailwind CSS**
+- **shadcn/ui and Radix UI**
+- **Framer Motion**
+- **Supabase**
+- **React Router**
+- **TanStack Query**
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## Requirements
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+- Node.js
+- npm
 
-# Step 3: Install the necessary dependencies.
-npm i
+## Local development
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+Install dependencies:
+
+```bash
+npm install
+```
+
+Create a local `.env` file with the Supabase project configuration:
+
+```env
+VITE_SUPABASE_URL=your_supabase_project_url
+VITE_SUPABASE_PUBLISHABLE_KEY=your_supabase_publishable_key
+```
+
+Start the development server:
+
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Vite is configured to use port **8080**.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Available scripts
 
-**Use GitHub Codespaces**
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the Vite development server |
+| `npm run build` | Build the production application |
+| `npm run build:dev` | Build using development mode |
+| `npm run preview` | Preview the production build locally |
+| `npm run lint` | Run ESLint |
+| `npm run test` | Run the Vitest test suite |
+| `npm run test:watch` | Run tests in watch mode |
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Supabase setup
 
-## What technologies are used for this project?
+The application uses Supabase for authentication and news content. Configure the project URL and publishable key through environment variables. Apply restrictive Row Level Security policies to the relevant tables so only authorized administrators can create, update, or delete content.
 
-This project is built with:
+Never put a Supabase service-role key or other privileged secret in a frontend environment variable.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Notes
 
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+This README documents the repository's visible application structure and development workflow. Production readiness depends on the deployment configuration, Supabase schema, authentication settings, and database security policies being correctly configured.
